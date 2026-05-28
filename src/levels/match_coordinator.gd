@@ -137,3 +137,10 @@ func spawn_player(player_name: String, spawn_pos: Vector4, facing: int):
     fighter.get_node("MeshInstance3D").set_surface_override_material(0, clay_material)
     
     add_child(fighter)
+# Add to _ready() in match_coordinator.gd
+func _ready() -> void:
+    var p1_data = RosterManager.get_profile("Michael Jordan")
+    if p1_data:
+        print("Success: ", p1_data.player_name, " loaded into the engine.")
+    else:
+        print("Error: Jordan profile not found in database.")
