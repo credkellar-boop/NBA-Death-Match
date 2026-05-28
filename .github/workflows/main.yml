@@ -1,17 +1,19 @@
 name: Validate Project
 
+# This tells GitHub to run this whenever you push code or open a Pull Request
 on: [push, pull_request]
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
+      # 1. Download your project files to the runner
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Run Validation
+      # 2. Run your custom validation script
+      - name: Run Roster Validation
         run: |
-          echo "Running custom validation for NBA Deathmatch..."
-          # Here you could add a call to a python script 
-          # that checks if all .tres files have the required fields.
-          python3 scripts/validate_roster.py 
+          echo "Starting validation..."
+          # This assumes your script is at scripts/validate_roster.py
+          python3 scripts/validate_roster.py
