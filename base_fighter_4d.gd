@@ -84,3 +84,16 @@ func take_damage(amount: float, attacker_position: Vector3) -> void:
 	
 	if current_health <= 0:
 		execute_deathmatch_termination()
+# Add to src/actors/base_fighter_4d.gd
+
+func _ready() -> void:
+	apply_stat_modifiers()
+
+func apply_stat_modifiers() -> void:
+	# Jordan's speed multiplier (e.g., 1.2x) vs Shaq's power multiplier
+	var speed_mod = player_profile.speed / 10.0
+	var power_mod = player_profile.attack_power / 10.0
+	
+	# Apply these to the physics variables
+	self.walk_speed = 5.0 * speed_mod
+	self.damage_output = 10.0 * power_mod
