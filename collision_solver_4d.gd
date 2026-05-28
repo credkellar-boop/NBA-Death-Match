@@ -32,3 +32,8 @@ static func clamp_to_united_center(current_position: Vector4, court_l: float, co
 	clamped_pos.w = clamp(clamped_pos.w, -10.0, 10.0)
 	
 	return clamped_pos
+# src/debug/perf_monitor.gd
+func _process(delta):
+    var fps = Engine.get_frames_per_second()
+    if fps < 55:
+        push_warning("Performance drop detected: ", fps, " FPS")
