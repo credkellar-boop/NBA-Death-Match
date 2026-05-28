@@ -45,3 +45,17 @@ cd NBA-Death-Match
 
 # Initialize submodules (if utilizing external 4D modules)
 git submodule update --init --recursive
+UnitedCenter4D (Node3D)  <- Attaches united_center_4d.gd
+├── WorldEnvironment     <- Configured with ACES Cinematic Tonemapping
+├── DirectionalLight3D   <- High-intensity arena ceiling spot lighting
+├── CourtMesh (MeshInstance3D) <- The actual wooden floor geometry
+│   └── StaticBody3D     <- Flat plane physical collision map
+├── Jumbotron (Node3D)
+│   ├── MeshInstance3D   <- The massive four-sided hanging central screen
+│   └── AnimationPlayer  <- Cycles playback channels and warning graphics
+├── CrowdSystem (Node3D)
+│   ├── MeshInstance3D   <- Multi-layered low-poly claymation crowd models
+│   └── FlashCameras     <- Particle emitter simulating crowd phone flashes
+└── Audio (Node3D)
+    ├── CrowdAmbience (AudioStreamPlayer)
+    └── CrowdCheer (AudioStreamPlayer)
