@@ -67,3 +67,20 @@ func _physics_process(delta: float) -> void:
 		
 		if input_buffer.check_sequence(hyper_dunk_sequence):
 			execute_signature_move()
+# Update this inside src/actors/base_fighter_4d.gd
+
+func take_damage(amount: float, attacker_position: Vector3) -> void:
+	current_health -= amount
+	
+	# 1. Force the State Machine to interrupt everything and enter Hit-Stun
+	var state_machine = $StateMachine as StateMachine
+	if state_machine:
+		state_machine.transition_to("HitStunState")
+	
+	# 2. Trigger the cinematic camera shake
+	var shake_intensity = clamp(amount * 0.05, 0.1, 1.5)
+	var freeze_time = clamp(amount * 0.003, 0.05, 0.3)
+	actor_damaged.emit(shake_intensity, freeze_time)
+	
+	if current_health <= 0:
+		execute_deathmatch_termination()
