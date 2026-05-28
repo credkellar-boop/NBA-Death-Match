@@ -97,3 +97,7 @@ func apply_stat_modifiers() -> void:
 	# Apply these to the physics variables
 	self.walk_speed = 5.0 * speed_mod
 	self.damage_output = 10.0 * power_mod
+# Toggle visibility of 4D hitboxes for debugging
+func _input(event):
+    if event.is_action_pressed("debug_hitboxes"):
+        $Hitbox4D.visible = !$Hitbox4D.visible
