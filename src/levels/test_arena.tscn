@@ -1,0 +1,5 @@
+# src/levels/test_arena.gd
+func _input(event):
+    if event.is_action_pressed("debug_hit_test"):
+        # Force Player 1 to hit Player 2 manually to check camera shake
+        p1_actor.take_damage(50, p1_actor.global_position)
