@@ -44,6 +44,31 @@ git clone [https://github.com/credkellar-boop/NBA-Death-Match.git](https://githu
 cd NBA-Death-Match
 
 # Initialize submodules (if utilizing external 4D modules)
+
+res://
+├── assets/                 # Shared global assets
+│   ├── environments/       # Shared arena skyboxes/lights
+│   ├── materials/          # Shared shaders (e.g., wet_clay.gdshader)
+│   └── sfx/                # Global audio clips
+├── data/                   # Data-driven design
+│   ├── rosters/            # .tres files (jordan_93.tres, shaq_96.tres)
+│   └── movesets/           # Move data definitions
+├── src/                    # Modular source code
+│   ├── actors/             # Player base classes
+│   │   └── base_fighter_4d/
+│   │       ├── base_fighter_4d.gd
+│   │       └── base_fighter_4d.tscn
+│   ├── systems/            # Logic controllers
+│   │   ├── roster_manager.gd
+│   │   └── match_coordinator.gd
+│   └── ui/                 # HUD and Menus
+│       └── input_hud/
+└── levels/                 # Git Submodules go here
+    └── united_center_4d/   # Submodule repository
+        ├── united_center_4d.gd
+        ├── scene.tscn
+        └── assets/         # Arena-specific geometry/audio
+
 git submodule update --init --recursive
 UnitedCenter4D (Node3D)  <- Attaches united_center_4d.gd
 ├── WorldEnvironment     <- Configured with ACES Cinematic Tonemapping
