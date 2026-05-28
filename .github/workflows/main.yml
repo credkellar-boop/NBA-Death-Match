@@ -1,6 +1,5 @@
 name: Validate Project
 
-# This tells GitHub to run this whenever you push code or open a Pull Request
 on: [push, pull_request]
 
 jobs:
