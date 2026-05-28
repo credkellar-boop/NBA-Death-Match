@@ -57,3 +57,13 @@ func execute_deathmatch_termination() -> void:
 	state_changed.emit("K.O.")
 	# Drop input listening windows, break collision bounds, and trigger the final cinematic death animations
 	set_physics_process(false)
+# Inside your fighter's physics logic pass:
+@onready var input_buffer: InputBuffer4D = $InputBuffer4D
+
+func _physics_process(delta: float) -> void:
+	if not is_attacking:
+		# Check for Quarter-Circle Forward + Punch (Down, Forward, Punch)
+		var hyper_dunk_sequence = [InputBuffer4D.Inputs.DOWN, InputBuffer4D.Inputs.FORWARD, InputBuffer4D.Inputs.PUNCH]
+		
+		if input_buffer.check_sequence(hyper_dunk_sequence):
+			execute_signature_move()
