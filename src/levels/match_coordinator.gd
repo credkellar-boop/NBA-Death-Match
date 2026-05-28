@@ -144,3 +144,16 @@ func _ready() -> void:
         print("Success: ", p1_data.player_name, " loaded into the engine.")
     else:
         print("Error: Jordan profile not found in database.")
+# src/levels/match_coordinator.gd
+
+func start_match(p1_name: String, p2_name: String):
+    # 1. Load the arena submodule
+    var arena = load("res://src/levels/UnitedCenter4D/scene.tscn").instantiate()
+    add_child(arena)
+    
+    # 2. Spawn fighters into the arena's coordinate space
+    var p1 = spawn_player(p1_name, Vector4(0, 0, 0, 1), 1)
+    var p2 = spawn_player(p2_name, Vector4(0, 0, 0, -1), -1)
+    
+    arena.add_child(p1)
+    arena.add_child(p2)
