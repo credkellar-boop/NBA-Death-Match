@@ -1,6 +1,6 @@
 # [Project Name: NBA Deathmatch 4D]
 
-[![Build Status](https://github.com/USER_NAME/REPO_NAME/actions/workflows/main.yml/badge.svg)](https://github.com/USER_NAME/REPO_NAME/actions/workflows/main.yml)
+[![Build Status](https://github.com/credkellar-boop/NBA-DEATH-MATCH/actions/workflows/main.yml/badge.svg)](https://github.com/credkellar-boop/NBA-Death-Match/actions/workflows/main.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Godot Engine](https://img.shields.io/badge/Godot-4.x-blue.svg)](https://godotengine.org/)
 
