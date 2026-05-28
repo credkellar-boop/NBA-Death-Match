@@ -28,3 +28,18 @@ func trigger_stadium_impact_event(intensity: float) -> void:
 		$Audio/CrowdCheer.play()
 	else:
 		jumbotron_animation.play("jumbotron_loop")
+# src/levels/UnitedCenter4D/united_center_4d.gd
+extends Node3D
+
+@onready var jumbotron = $Jumbotron
+@onready var env = $WorldEnvironment
+
+func _ready() -> void:
+    # Initialize the high-fidelity cinematic look
+    _setup_aces_tonemapping()
+    # Trigger the arena intro sequence
+    jumbotron.play_intro_animation()
+
+func _setup_aces_tonemapping() -> void:
+    env.environment.tonemap_mode = Environment.TONEMAP_ACES
+    env.environment.tonemap_exposure = 1.2
