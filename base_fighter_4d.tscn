@@ -1,0 +1,6 @@
+BaseFighter4D
+├── StateMachine (Node) <- Attach state_machine.gd here
+│   ├── IdleState (Node) <- Attach idle_state.gd here
+│   ├── WalkState (Node)
+│   ├── AttackState (Node)
+│   └── HitStunState (Node)
