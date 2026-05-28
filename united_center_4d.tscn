@@ -1,0 +1,5 @@
+UnitedCenter4D (Node3D)
+└── Jumbotron (Node3D)
+    ├── JumbotronFeed (SubViewport) <- Attaches jumbotron_feed.gd
+    │   └── Camera3D                 <- Render target source
+    └── ScreenMesh (MeshInstance3D)  <- The physical hanging tesseract display
