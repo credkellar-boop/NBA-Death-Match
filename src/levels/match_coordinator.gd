@@ -121,3 +121,19 @@ func declare_match_champion(winner_id: int) -> void:
 	var champ_name = p1_actor.player_profile.player_name if winner_id == 1 else p2_actor.player_profile.player_name
 	print("MATCH OVER! ", champ_name, " IS THE CELEBRITY DEATHMATCH CHAMPION!")
 	# Transition back to main menu loop or character select scene
+# Inside src/levels/match_coordinator.gd
+
+func spawn_player(player_name: String, spawn_pos: Vector4, facing: int):
+    var profile = RosterManager.get_profile(player_name)
+    var fighter = load("res://src/actors/base_fighter_4d.tscn").instantiate()
+    
+    # Configure actor with HOF stats
+    fighter.player_profile = profile
+    fighter.global_position_4d = spawn_pos
+    fighter.facing_direction = facing
+    
+    # Apply the Clay Shader to the imported model
+    var clay_material = load("res://assets/materials/wet_clay.tres")
+    fighter.get_node("MeshInstance3D").set_surface_override_material(0, clay_material)
+    
+    add_child(fighter)
