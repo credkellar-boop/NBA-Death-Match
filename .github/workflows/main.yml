@@ -1,0 +1,17 @@
+name: Validate Project
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Validation
+        run: |
+          echo "Running custom validation for NBA Deathmatch..."
+          # Here you could add a call to a python script 
+          # that checks if all .tres files have the required fields.
+          python3 scripts/validate_roster.py 
